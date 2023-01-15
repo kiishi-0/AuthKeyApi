@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "GlKZAm5h+FmPXmhuYxGZKt/ytVBeLY45YvmIHVPvBPE=",
+  "Source": "AuthKeyApi",
+  "BasePath": "_content/AuthKeyApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
