@@ -6,18 +6,25 @@ namespace AuthKeyApi.Controllers
 {
     [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class AuthController : ControllerBase
     {
         /*public readonly Dictionary<string, string> keyValues;
         
         public string AuthKey { get; set; }*/
         public AuthKey dv = new AuthKey();
-        private Task<Dictionary<string, string>> _getKey;
-        public AuthController() => _getKey = dv.getAuthKey();
+       
+
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(AuthenticationKey))]
+        [ProducesResponseType(500)]
+        
         public ActionResult<Dictionary<string, string>> Get()
         {
-            return Ok(_getKey);
+            var key = dv.getAuthKey().Result;
+            Dictionary<string, string> AuthKey = new Dictionary<string, string>();
+            AuthKey.Add("AuthenticationKey", key);
+            return Ok(AuthKey);
         }
     }
 }

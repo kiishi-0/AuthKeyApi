@@ -10,5 +10,4 @@ HttpResponseMessage response = await client.GetAsync("api/UCAMAPI/core/v3/GetKey
 response.EnsureSuccessStatusCode();*/
 /*if (response.IsSuccessStatusCode)
 {
-    var res = await response.Content.ReadFromJsonAsync <<IEnumerable<();
-}*/
+    var res = await response.Content.ReadFromJsonAsync <<IEnumerable<();}*/

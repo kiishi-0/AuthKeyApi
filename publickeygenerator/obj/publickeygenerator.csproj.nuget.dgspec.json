@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\source\\repos\\AuthKeyApi\\publickeygenerator\\publickeygenerator.csproj": {}
+    "C:\\Users\\Iteoluwakiishi.Oyewo\\Source\\Repos\\AuthKeyApi\\publickeygenerator\\publickeygenerator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\source\\repos\\AuthKeyApi\\publickeygenerator\\publickeygenerator.csproj": {
+    "C:\\Users\\Iteoluwakiishi.Oyewo\\Source\\Repos\\AuthKeyApi\\publickeygenerator\\publickeygenerator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\AuthKeyApi\\publickeygenerator\\publickeygenerator.csproj",
+        "projectUniqueName": "C:\\Users\\Iteoluwakiishi.Oyewo\\Source\\Repos\\AuthKeyApi\\publickeygenerator\\publickeygenerator.csproj",
         "projectName": "publickeygenerator",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\AuthKeyApi\\publickeygenerator\\publickeygenerator.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\AuthKeyApi\\publickeygenerator\\obj\\",
+        "projectPath": "C:\\Users\\Iteoluwakiishi.Oyewo\\Source\\Repos\\AuthKeyApi\\publickeygenerator\\publickeygenerator.csproj",
+        "packagesPath": "C:\\Users\\Iteoluwakiishi.Oyewo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Iteoluwakiishi.Oyewo\\Source\\Repos\\AuthKeyApi\\publickeygenerator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Iteoluwakiishi.Oyewo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

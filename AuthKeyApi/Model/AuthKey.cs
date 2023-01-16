@@ -1,19 +1,41 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+
+/*using System.Data;*/
 using System.Security.Cryptography;
 using System.Text;
-using System.Text.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace AuthKeyApi.Model
 {
+    class RootObject
+    {
+        public string status { get; set; }
+        public List<Result> result { get; set; }
+    }
 
+    class Result
+    {
+        public List<Security> Security { get; set; }
+    }
+
+    class Security
+    {
+        public string PublicKey { get; set; }
+    }
+    class AuthenticationKey
+    {
+        public Dictionary<string, string> Key { get; set; }
+    }
     public class AuthKey
     {
         public string clientKey { get; set; }
         public string privateKey { get; set; }
         public string publicKeyBaseUrl { get; set; } 
         public string publicKeyEndPoint { get; set; } 
-        public string Auth { get; set; } 
-        public string ErrorMsg { get; set; } 
+        /*public string Auth { get; set; } 
+        public string ErrorMsg { get; set; }*/ 
 
         public AuthKey()
         {
@@ -21,7 +43,6 @@ namespace AuthKeyApi.Model
             privateKey = "GW5Z48P534GHP6JCX2ZALMBU94F0B8OI";
             publicKeyBaseUrl = "http://172.27.27.7:8080/";
             publicKeyEndPoint = "api/UCAMAPI/core/v3/GetKey";
-            ErrorMsg = "Theres an error";
         }
 
         public string  ToHash( string s)
@@ -36,7 +57,7 @@ namespace AuthKeyApi.Model
             return sb.ToString();
         }
         
-        public Dictionary<string, string> getKeyValues() { 
+        /*public Dictionary<string, string> getKeyValues() { 
             var keyValues = new Dictionary<string, string>();
             keyValues.Add("clk", clientKey);
             keyValues.Add("prk", privateKey);
@@ -44,37 +65,41 @@ namespace AuthKeyApi.Model
             keyValues.Add("pep", publicKeyEndPoint);
 
             return keyValues;
-        }
+        }*/
   
-        public async Task<AuthKey> getPublicKey()
+        public async Task<String> getPublicKey()
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri($"{publicKeyBaseUrl}");
-                var response = await client.GetAsync($"{publicKeyEndPoint}/{publicKeyEndPoint}");
+                var response = await client.GetAsync($"{publicKeyEndPoint}/{clientKey}");
+                
+                    
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonSerializer.Deserialize<AuthKey>(await response.Content.ReadAsStringAsync());
-                    return result;
+                    var result = await response.Content.ReadAsStringAsync();
+                    var json = JsonConvert.DeserializeObject<RootObject>(result);
+                    var publicKey = json.result[0].Security[0].PublicKey;
+                    return publicKey;
                 }
                 else
                 {
-
                     throw new Exception(response.ReasonPhrase);
                 }
             }
         }
 
-        public async Task<Dictionary<string, string>> getAuthKey()
+        public async Task<string> getAuthKey()
 
         {
-            /*var publicKey = await getPublicKey();*/
-            var publicKey = "idkfhfghew83hyu939";
+            var publicKey = await getPublicKey();
+            /*return publicKey;*/
             var hashString = $"{publicKey} + {clientKey} + {privateKey}";
-            Auth = ToHash(hashString);
+            var Auth = ToHash(hashString);
+
             var AuthDict = new Dictionary<string, string>();
             AuthDict.Add("AuthenticationKey", Auth);
-            return AuthDict;
+            return Auth;
         }
 
     }
