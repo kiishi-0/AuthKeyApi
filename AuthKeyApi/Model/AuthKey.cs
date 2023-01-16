@@ -94,7 +94,7 @@ namespace AuthKeyApi.Model
         {
             var publicKey = await getPublicKey();
             /*return publicKey;*/
-            var hashString = $"{publicKey} + {clientKey} + {privateKey}";
+            var hashString = $"{publicKey}{clientKey}{privateKey}";
             var Auth = ToHash(hashString);
 
             var AuthDict = new Dictionary<string, string>();
